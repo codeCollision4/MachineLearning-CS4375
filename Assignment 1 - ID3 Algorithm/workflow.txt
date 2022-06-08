@@ -1,0 +1,14 @@
+1. Take in Input From Command Line
+2. Read file given for training data
+3. Create a way to access organized data
+4. Pass Data to ID3
+5. Run ID3
+6. Output result to console
+
+
+Create a way to access organized data
+    - Set of vectors, each containing value of each attribute
+    - One vector with each index corresponding to that datapoints class value
+
+Run ID3
+    - 

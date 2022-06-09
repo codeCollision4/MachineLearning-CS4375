@@ -28,3 +28,12 @@ def main():
     else:
         print("Please provide a .dat file that exists. Make sure you are not just providing a directory.")
         exit()
+        
+        
+        
+def id3(X, Y):
+    '''
+    Algorithm that will run the ID3 algorithm aka a decision tree that uses information gain and entropy to make a choice.
+    '''
+    
+    

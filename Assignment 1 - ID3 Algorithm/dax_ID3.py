@@ -1,10 +1,11 @@
 import argparse
 from pathlib import Path
 import math
-import pandas as pd
-import numpy as np
+from util import LearnTree
 
-  
+
+        
+        
 def main():
 
     # Command Line Parser
@@ -26,15 +27,29 @@ def main():
     # Getting training data from .dat file if path exists
     if args.train.exists() and args.train.is_file():
         # Looping thru file
-        train_vec = []
-        class_val_vec = []
+        datapoints = []
+        class_values = []
         with args.train.open() as f:
-            # Read in file as DataFrame
-            table = pd.read_csv(f, delim_whitespace=True)
+            for idx, line in enumerate(f):
+                if idx == 0:
+                    data = line.split()
+                    num_attr = len(data) - 1
+                    # print("Attribute columns: ", num_attr)
+                    attr_names = data[:num_attr] # Getting first attr up to last
+                    # print("Attributes: ", attr_names)
+                else:
+                    # Get data vectors that correspond to attributes and class(yes/no)
+                    data = line.split()
+                    datapoints.append(data[:num_attr]) # Creates vector list
+                    class_values.append(data[-1]) # Creates class values list
+                    
+        # Create ID3 tree instance
+        lt = LearnTree(attr_names, datapoints, class_values)
+                        
 
-        # Setting System Entropy
-        # lt.set_sys_ent()
-        
+        # print("Training vectors list: ", datapoints)
+        # print("Class values list: ", class_values)  
+
         # Creating ID3 Tree
         # lt.create_tree_id3(lt.train_vectors, lt.class_value_vector)
 

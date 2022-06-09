@@ -1,7 +1,7 @@
-1. Take in Input From Command Line
-2. Read file given for training data
-3. Create a way to access organized data
-4. Pass Data to ID3
+1. [x] Take in Input From Command Line 
+2. [x] Read file given for training data
+3. [x] Create a way to access organized data
+4. [x] Pass Data to ID3
 5. Run ID3
 6. Output result to console
 

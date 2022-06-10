@@ -45,13 +45,16 @@ def main():
                     
         # Create ID3 tree instance
         lt = LearnTree(attr_names, datapoints, class_values)
+        
+        # Create the tree with the training data
+        lt.create_tree()
+        
+        # Print tree to stdout
+        
                         
 
         # print("Training vectors list: ", datapoints)
         # print("Class values list: ", class_values)  
-
-        # Creating ID3 Tree
-        # lt.create_tree_id3(lt.train_vectors, lt.class_value_vector)
 
     else:
         print("Please provide a .dat file that exists. Make sure you are not just providing a directory.")

@@ -1,5 +1,5 @@
 import math
-from collections import Counter
+from collections import Counter, deque
 
 class Node():
     def __init__(self):
@@ -7,6 +7,7 @@ class Node():
         self.children = None
         self.cls_val = None
         self.attr_name = None
+        self.attr_value = None
 
 class LearnTree():
     def __init__(self, attr_names, datapoints, class_values):
@@ -153,10 +154,29 @@ class LearnTree():
         
         return ent
     
-    
+    def training_accuracy(self):
+        pass
+
     
     def print_tree(self):
-        pass
+        
+        # Tree level counter for "|"" char
+        level = 0
+
+        stack = deque()
+
+        '''
+        Possible to use a traversal once to grab data necessary for printing, and accuracy
+
+        Need to track level in some way
+            - Start at root
+            - At current node print attribute name
+            - At each child print attr value
+            - If child is leaf print class value
+        '''
+
+
+
     
     
 

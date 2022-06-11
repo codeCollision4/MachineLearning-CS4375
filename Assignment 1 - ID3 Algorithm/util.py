@@ -1,6 +1,12 @@
 import math
 from collections import Counter
 
+class Node():
+    def __init__(self):
+        self.next = None # Next branch in sequence of traversal
+        self.children = None
+        self.cls_val = None
+        self.attr_name = None
 
 class LearnTree():
     def __init__(self, attr_names, datapoints, class_values):
@@ -28,6 +34,10 @@ class LearnTree():
         # Actual algorithm here
         
         # data_ids is X in given alg
+
+        # Gives Nonetype error if not present
+        if not node:
+            node = Node()
         
         # Class values of given data points, index links value to datapoint by id
         class_val_list = [self.class_values[id] for id in data_ids] # Y in given alg
@@ -117,6 +127,7 @@ class LearnTree():
         
         
         # Calc the info gain
+        ig = 0.00
         for val, ids in zip(attr_count, attr_val_id):
             ig = ig + -(val) / len(data_ids) * self._get_entropy(ids)
         
@@ -136,7 +147,7 @@ class LearnTree():
         split_count = [filtered_class_vals.count(cls_val) for cls_val in list(set(filtered_class_vals))]
         
         # Get entropy
-        ent = None
+        ent = 0.00
         for cls_val in split_count:
             ent = ent + -(cls_val / total) * math.log(cls_val / total, 2)
         
@@ -148,10 +159,5 @@ class LearnTree():
         pass
     
     
-class Node():
-    def __init__(self):
-        self.next = None # Next branch in sequence of traversal
-        self.children = None
-        self.cls_val = None
-        self.attr_name = None
+
         

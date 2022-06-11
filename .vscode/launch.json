@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/Assignment 1 - ID3 Algorithm/dax_ID3.py",
             "console": "integratedTerminal",
-            "args": ["/Users/daxcollison/Documents/GitHub/MachineLearning-CS4375/Assignment 1 - ID3 Algorithm/train/train.dat", "/Users/daxcollison/Documents/GitHub/MachineLearning-CS4375/Assignment 1 - ID3 Algorithm/test/test.dat"],
+            "args": ["${workspaceFolder}/Assignment 1 - ID3 Algorithm/training/train.dat", "${workspaceFolder}/Assignment 1 - ID3 Algorithm/test/test.dat"],
             "justMyCode": false
         }
     ]

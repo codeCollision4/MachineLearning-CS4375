@@ -1,0 +1,19 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Tree 1",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/Assignment 1 - ID3 Algorithm/dax_ID3.py",
+            "console": "integratedTerminal",
+            "args": ["/Users/daxcollison/Documents/GitHub/MachineLearning-CS4375/Assignment 1 - ID3 Algorithm/train/train.dat", "/Users/daxcollison/Documents/GitHub/MachineLearning-CS4375/Assignment 1 - ID3 Algorithm/test/test.dat"],
+            "justMyCode": false
+        }
+    ]
+}
+
+/Users/daxcollison/Documents/GitHub/MachineLearning-CS4375/Assignment 1 - ID3 Algorithm/dax_ID3.py

@@ -50,7 +50,7 @@ def main():
         lt.create_tree()
         
         # Print tree to stdout
-        
+        lt.print_tree()
                         
 
         # print("Training vectors list: ", datapoints)

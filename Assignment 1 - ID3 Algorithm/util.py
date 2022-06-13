@@ -8,6 +8,7 @@ class Node():
         self.cls_val = None
         self.attr_name = None
         self.attr_value = None
+        self.num = None
 
 class LearnTree():
     def __init__(self, attr_names, datapoints, class_values):
@@ -22,6 +23,8 @@ class LearnTree():
         self.sys_ent = self._get_entropy(self.datapoint_ids)
         self.attr_ids = [name_id for name_id in range(len(self.attr_names))]
         self.root = Node() # To start the tree
+        self.levels = 0
+        self.node_count = 0
         
     def create_tree(self):
         '''
@@ -38,6 +41,7 @@ class LearnTree():
 
         # Gives Nonetype error if not present
         if not node:
+            # self.node_count += 1
             node = Node()
         
         # Class values of given data points, index links value to datapoint by id
@@ -69,6 +73,7 @@ class LearnTree():
         
         # Give node name of high ig attr
         node.attr_name = self.attr_names[most_info_gain_attr]
+        # node.num = self.node_count
         
         # Create a child node for each value of attr after creating a list of all values the attr has
         attr_unique = [self.datapoints[id][most_info_gain_attr] for id in data_ids]
@@ -89,6 +94,7 @@ class LearnTree():
                     attr_ids.remove(most_info_gain_attr)
             
             # Create node as a child
+            # self.node_count += 1
             child = Node()
             node.children.append(child) # Connect parent to child
             
@@ -159,11 +165,7 @@ class LearnTree():
 
     
     def print_tree(self):
-        
-        # Tree level counter for "|"" char
-        level = 0
 
-        stack = deque()
 
         '''
         Possible to use a traversal once to grab data necessary for printing, and accuracy
@@ -174,6 +176,33 @@ class LearnTree():
             - At each child print attr value
             - If child is leaf print class value
         '''
+        order = []
+        
+        
+        if not self.root:
+            return []
+        
+        queue = deque([self.root]) # init queue with root
+        
+        while queue:
+            hold = queue.popleft()
+            order.append(hold)
+            # Loop thru each child
+            if not hold.children: 
+                continue
+            print(hold.children)
+            for child in reversed(hold.children):
+                queue.appendleft(child)
+                
+        print (order)
+
+        for node in order:
+            print("Node ", node.num)
+            print(node.cls_val)
+            print(node.attr_name)
+            print(node.attr_value)
+            print(self.levels)
+
 
 
 
